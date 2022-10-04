@@ -1,5 +1,4 @@
-package practice.prac3;
-import java.math.*;
+package practice.prac3.task1;
 
 public class Circle extends Shape{
 

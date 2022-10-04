@@ -1,4 +1,4 @@
-package practice.prac3;
+package practice.prac3.task1;
 
 public class Rectangle extends Shape{
 
