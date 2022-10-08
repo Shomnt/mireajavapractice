@@ -1,8 +1,8 @@
-package practice.prac6;
+package test;
 
 import java.util.Arrays;
 
-public class Task1 {
+public class test {
     public static void main(String[] args){
         int[] array = {10, 2, 10, 3, 1, 2, 5};
         System.out.println(Arrays.toString(array));
