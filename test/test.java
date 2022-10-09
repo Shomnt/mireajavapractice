@@ -1,28 +1,67 @@
-package test;
+/*package test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class test {
-    public static void main(String[] args){
-        int[] array = {10, 2, 10, 3, 1, 2, 5};
-        System.out.println(Arrays.toString(array));
-        for (int left = 0; left < array.length; left++) {
-            // Вытаскиваем значение элемента
-            int value = array[left];
-            // Перемещаемся по элементам, которые перед вытащенным элементом
-            int i = left - 1;
-            for (; i >= 0; i--) {
-                // Если вытащили значение меньшее — передвигаем больший элемент дальше
-                if (value < array[i]) {
-                    array[i + 1] = array[i];
-                } else {
-                    // Если вытащенный элемент больше — останавливаемся
-                    break;
-                }
-            }
-            // В освободившееся место вставляем вытащенное значение
-            array[i + 1] = value;
+    public static void main(String[] args)throws Exception {
+            List aList = new ArrayList();
+            aList.add(0, "Apple");
+            aList.add(1, "Mango");
+            aList.add(2, "Banana");
+            aList.add(1, "Melon");
+            aList.add(3, "Guava");
+            System.out.println("The ArrayList elements are: " + aList);
+    }
+
+    public int [] sortArray(int[] arrayA){ // сортировка Массива который передается в функцию
+        // проверяем не нулевой ли он?
+        if (arrayA == null) {
+            return null;
         }
-        System.out.println(Arrays.toString(array));
+        // проверяем не 1 ли элемент в массиве?
+        if (arrayA.length < 2) {
+            return arrayA; // возврат в рекурсию в строки ниже см комменты.
+        }
+        // копируем левую часть от начала до середины
+        int [] arrayB = new int[arrayA.length / 2];
+        System.arraycopy(arrayA, 0, arrayB, 0, arrayA.length / 2);
+
+        // копируем правую часть от середины до конца массива, вычитаем из длины первую часть
+        int [] arrayC = new int[arrayA.length - arrayA.length / 2];
+        System.arraycopy(arrayA, arrayA.length / 2, arrayC, 0, arrayA.length - arrayA.length / 2);
+
+        // рекурсией закидываем поделенные обе части обратно в наш метод, он будет крутится до тех пор,
+        // пока не дойдет до 1 элемента в массиве, после чего вернется в строку и будет искать второй такой же,
+        // точнее правую часть от него и опять вернет его назад
+        arrayB = sortArray(arrayB); // левая часть возврат из рекурсии строкой return arrayA;
+        arrayC = sortArray(arrayC); // правая часть возврат из рекурсии строкой return arrayA;
+
+        // далее опять рекурсия возврата слияния двух отсортированных массивов
+        return mergeArray(arrayB, arrayC);
+    }
+
+    private int[] mergeArray(int[] arrayA, int[] arrayB) {
+        int [] arrayC = int[arrayA.length + arrayB.length];
+        int positionA = 0, positionB = 0;
+
+        for (int i = 0; i < arrayC.length; i++) {
+            if (positionA == arrayA.length){
+                arrayC[i] = arrayB[i - positionB];
+                positionB++;
+            } else if (positionB == arrayB.length) {
+                arrayC[i] = arrayA[i - positionA];
+                positionA++;
+            } else if (arrayA[i - positionA] < arrayB[i - positionB]) {
+                arrayC[i] = arrayA[i - positionA];
+                positionB++;
+            } else {
+                arrayC[i] = arrayB[i - positionB];
+                positionA++;
+            }
+        }
+        return arrayC;
     }
 }
+*/

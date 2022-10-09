@@ -1,9 +1,6 @@
-package practice.prac6.task2;
+package practice.prac6.task3;
 
-import java.util.Comparator;
-
-public class Student{
-
+public class Student {
     private String name;
     private int mark;
 
@@ -11,10 +8,6 @@ public class Student{
         this.mark = mark;
         this.name = name;
     }
-
-    /*public <T> Comparable getMark() {
-        return mark;
-    }*/
 
     public String getName() {
         return name;
@@ -33,7 +26,6 @@ public class Student{
     }
 
     public String toString(){
-        return "Name: " + name + ", mark: " + mark;
+        return /*"Name: " + name + ", mark: " + */"" + mark;
     }
-
 }
