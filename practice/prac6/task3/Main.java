@@ -18,7 +18,7 @@ public class Main {
         students2.add(new Student("Bormincevff" , 121));
         students2.add(new Student("Ivanffov" , 42));
         students2.add(new Student("Andreffev" , 110));
-        students2.add(new Student("Kuzyadd" , 7));
+        students2.add(new Student("Kuzyadd" , 3));
 
         students.addAll(students2);
         System.out.println(students);
