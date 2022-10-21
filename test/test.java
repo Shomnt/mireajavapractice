@@ -1,64 +1,83 @@
 package test;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
 public class test {
+    public static void createGUI() {
+
+        JFrame frame = new JFrame("Test frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Font font = new Font("Verdana", Font.PLAIN, 11);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu fileMenu = new JMenu("File");
+        fileMenu.setFont(font);
+
+        JMenu newMenu = new JMenu("New");
+        newMenu.setFont(font);
+        fileMenu.add(newMenu);
+
+        JMenuItem txtFileItem = new JMenuItem("Text file");
+        txtFileItem.setFont(font);
+        newMenu.add(txtFileItem);
+
+        JMenuItem imgFileItem = new JMenuItem("Image file");
+        imgFileItem.setFont(font);
+        newMenu.add(imgFileItem);
+
+        JMenuItem folderItem = new JMenuItem("Folder");
+        folderItem.setFont(font);
+        newMenu.add(folderItem);
+
+        JMenuItem openItem = new JMenuItem("Open");
+        openItem.setFont(font);
+        fileMenu.add(openItem);
+
+        JMenuItem closeItem = new JMenuItem("Close");
+        closeItem.setFont(font);
+        fileMenu.add(closeItem);
+
+        JMenuItem closeAllItem = new JMenuItem("Close all");
+        closeAllItem.setFont(font);
+        fileMenu.add(closeAllItem);
+
+        fileMenu.addSeparator();
+
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.setFont(font);
+        fileMenu.add(exitItem);
+
+        exitItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        menuBar.add(fileMenu);
+
+        frame.setJMenuBar(menuBar);
+
+        frame.setPreferredSize(new Dimension(270, 225));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args) {
-        //----------------------------------------------//
-        int[] a1 = new int[5];
-        for (int m = 0; m < a1.length; m++) {
-            a1[m] = ((int)(Math.random() * 10));
-            {
-                System.out.print(a1[m] + " ");
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame.setDefaultLookAndFeelDecorated(true);
+                createGUI();
             }
-        }
-        int[] a2 = new int[5];
-        System.out.print("\n");
-        for (int l = 0; l < a2.length; l++) {
-            a2[l] = ((int)((Math.random() * 10)));
-            {
-                System.out.print(a2[l] + " ");
-            }
-        }
-        //----------------------------------------------//
-
-        Stack<Integer> arr1 = new Stack<>();
-        Stack<Integer> arr2 = new Stack<>();
-        for (int i = 0; i < 5; i++) {
-            arr1.add(a1[i]);
-            arr2.add(a2[i]);
-        }
-
-        int count = 0;
-        boolean res = false;
-
-        System.out.print("\n");
-
-        for (int i = 0; i < 106; i++) {
-            count++;
-            if (arr1.get(0) > arr2.get(0) || ((arr1.get(0) == 0) && (arr2.get(0) == 9))) {
-                arr1.add(arr1.get(0));
-                arr1.add(arr2.get(0));
-            } else if (arr1.get(0) < arr2.get(0) || ((arr1.get(0) == 9) && (arr2.get(0) == 0))) {
-                arr2.add(arr2.get(0));
-                arr2.add(arr1.get(0));
-            }
-            arr1.remove(0);
-            arr2.remove(0);
-
-            if (arr1.size() == 0) {
-                System.out.println("Second " + count);
-                res = true;
-                break;
-            } else if (arr2.size() == 0) {
-                System.out.println("First " + count);
-                res = true;
-                break;
-            }
-        }
-        if (!res) System.out.println("Botva!");
+        });
     }
 }

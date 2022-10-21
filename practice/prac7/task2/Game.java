@@ -1,9 +1,10 @@
-package practice.prac7.task1;
+package practice.prac7.task2;
+
+
 
 import java.util.Scanner;
 
 public class Game {
-
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
 
@@ -57,11 +58,11 @@ public class Game {
                 deck2.del();
             }
 
-            if(deck1.getDeck().empty()){
+            if(deck1.getDeck().isEmpty()){
                 System.out.println("second " + step);
                 break;
             }
-            if(deck2.getDeck().empty()){
+            if(deck2.getDeck().isEmpty()){
                 System.out.println("first " + step);
                 break;
             }
