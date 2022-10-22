@@ -4,14 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class Drunkard extends JFrame implements ActionListener {
     //********************
     JFrame frame = new JFrame();
+    int deckSize = 5;
     JPanel RulesPanel = new JPanel(null);
     JMenuBar menuBar = new JMenuBar();
     JPanel MainGameButtonsPanel = new JPanel(null);
     JPanel MainGameVisualPanel = new JPanel(null);
+    PlayerColoda deck1 = new PlayerColoda();
+    PlayerColoda deck2 = new PlayerColoda();
     //********************
 
 
@@ -45,6 +49,7 @@ public class Drunkard extends JFrame implements ActionListener {
         maingame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Clean();
                 MainGame();
             }
         });
@@ -85,10 +90,29 @@ public class Drunkard extends JFrame implements ActionListener {
     }
 
     public void MainGame(){
-        Clean();
         JButton Start = new JButton("Старт");
         JButton Stop = new JButton("Прервать игру");
         JButton OpenCard = new JButton("Открыть карту");
+
+        Start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Start.setEnabled(false);
+                Stop.setEnabled(true);
+                OpenCard.setEnabled(true);
+                Game();
+            }
+        });
+
+        Stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Start.setEnabled(true);
+                Stop.setEnabled(false);
+                OpenCard.setEnabled(false);
+                ModelGame();
+            }
+        });
 
     }
 
@@ -97,7 +121,20 @@ public class Drunkard extends JFrame implements ActionListener {
     }
 
     public void Game(){
+        deck1 = RandomColoda(deck1);
+        deck2 = RandomColoda(deck2);
 
+
+
+    }
+
+    public PlayerColoda RandomColoda(PlayerColoda deck){
+        Random random = new Random();
+        for (int i = 0; i < deckSize; i++){
+            deck.add_bottom(random.nextInt(9 - 0) + 0);
+        }
+
+        return deck;
     }
 
     public void RulesCreate(){
