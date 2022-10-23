@@ -123,15 +123,15 @@ public class Drunkard extends JFrame implements ActionListener {
     public void Game(){
         deck1 = RandomColoda(deck1);
         deck2 = RandomColoda(deck2);
-
-
+        System.out.println(deck1);
+        System.out.println(deck2);
 
     }
 
     public PlayerColoda RandomColoda(PlayerColoda deck){
         Random random = new Random();
         for (int i = 0; i < deckSize; i++){
-            deck.add_bottom(random.nextInt(9 - 0) + 0);
+            deck.add_bottom(random.nextInt(9));
         }
 
         return deck;
