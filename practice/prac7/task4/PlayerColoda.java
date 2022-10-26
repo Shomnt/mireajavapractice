@@ -17,6 +17,10 @@ public class PlayerColoda {
         deck.push(card);
     }
 
+    public void clear(){
+        deck.clear();
+    }
+
     public String toString(){
         return "" + deck;
     }
@@ -25,4 +29,7 @@ public class PlayerColoda {
         return deck;
     }
 
+    public int getSize(){
+        return deck.size();
+    }
 }
