@@ -1,10 +1,14 @@
 package practice.prac8;
 
 import java.util.Collection;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class WaitList<E> implements IWaitList{
     protected ConcurrentLinkedQueue<E> content;
+
+    protected Queue data;
+    protected Queue deleted;
 
     public WaitList(){
 
