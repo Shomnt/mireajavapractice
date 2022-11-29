@@ -15,7 +15,7 @@ public class task1 {
     public static void main(String[] args){
         String [] str = {"1","2","3","4","5"};
 
-        List<String> list1 = new LinkedList();
+        List<String> list1;
 
         list1 = convert(str);
         for (String s : str) {

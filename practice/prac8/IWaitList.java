@@ -7,5 +7,4 @@ public interface IWaitList<E>{
      E remove();
      boolean contains(E element);
      boolean containsAll(Collection<E> c);
-     boolean isEmpty();
 }

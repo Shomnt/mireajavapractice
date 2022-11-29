@@ -1,6 +1,6 @@
 package practice.prac8;
 
-public class BoundedWaitList<E> extends WaitList{
+public class BoundedWaitList<E> extends WaitList<E>{
     private int capacity;
 
     public BoundedWaitList(int capacity){
@@ -13,14 +13,20 @@ public class BoundedWaitList<E> extends WaitList{
 
     @Override
     public void add(Object element) {
-
-        super.add(element);
+        if(data.size() == capacity){
+            System.out.println("Нет места");
+        }
+        else{
+            data.add(element);
+        }
     }
 
     @Override
     public String toString() {
         return "BoundedWaitList{" +
                 "capacity=" + capacity +
+                ", content=" + content +
+                ", data=" + data +
                 '}';
     }
 }
