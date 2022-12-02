@@ -1,6 +1,5 @@
-package labs.lab12;
+package labs.lab12_13;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class task1 {

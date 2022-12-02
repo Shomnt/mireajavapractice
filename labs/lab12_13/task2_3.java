@@ -1,9 +1,7 @@
-package labs.lab12;
+package labs.lab12_13;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class task2_3 {
     public static void main(String[] args){
