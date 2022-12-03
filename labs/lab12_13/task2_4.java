@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class task2_4 {
     public static void main(String[] args){
         String stringpatern = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$";
-        String text = "@my.ru";
+        String text = "root@localhost";
         Pattern pattern = Pattern.compile(stringpatern);
         Matcher m = pattern.matcher(text);
         if(m.find()){

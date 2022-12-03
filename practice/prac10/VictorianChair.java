@@ -10,4 +10,9 @@ public class VictorianChair implements Chair{
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        return "VictorianChair, возрастом " + age;
+    }
 }

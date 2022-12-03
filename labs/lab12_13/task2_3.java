@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 
 public class task2_3 {
     public static void main(String[] args){
-        String text = "29/02/2001";
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String text = "20/02/2012";
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
             format.parse(text);
